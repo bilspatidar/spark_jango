@@ -1,4 +1,5 @@
 # .gitignore
 .env.development
 .env.production
+__pycache__/
 *.pyc
