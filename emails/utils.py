@@ -17,3 +17,18 @@ def send_custom_email(subject, html_content, recipient_list):
     msg.attach_alternative(html_content, "text/html")
     
     msg.send()
+
+def send_sign_up_email(user):
+    subject = 'Sign Up Complete'
+    html_content = render_to_string('signup_emails/signup_email.html', {'user': user})
+    recipient_list = [user.email]
+    send_custom_email(subject, html_content, recipient_list)
+
+def send_custom_email(subject, html_content, recipient_list):
+    email_from = settings.EMAIL_HOST_USER
+    text_content = 'This is an important message.'
+
+    msg = EmailMultiAlternatives(subject, text_content, email_from, recipient_list)
+    msg.attach_alternative(html_content, "text/html")
+    
+    msg.send()
