@@ -7,7 +7,7 @@ class ReviewRating(BaseModel):
     service_id = models.IntegerField(unique=True)
     rating = models.IntegerField(unique=True)
     date =  models.DateField(unique=False)
-    image = models.ImageField(upload_to='review_rating_images/')
+    image = models.ImageField(upload_to='uploads/review_rating_images/')
 
     def __str__(self):
         return self.service_id
