@@ -6,8 +6,8 @@ from django.utils import timezone
 from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
-from .models import Category
-from .serializers import CategorySerializer
+from .models import ReviewRating
+from .serializers import ReviewRatingSerializer
 from rest_framework.settings import api_settings
 from rest_framework.pagination import PageNumberPagination
 
@@ -17,33 +17,30 @@ class StandardResultsSetPagination(PageNumberPagination):
     max_page_size = 100
 
 
-class CategoryListCreateView(APIView):
+class ReviewRatingListCreateView(APIView):
     permission_classes = [IsAuthenticated]
     pagination_class = StandardResultsSetPagination
 
     def get(self, request, pk=None):
         if pk:
-            category = get_object_or_404(Category, pk=pk)
-            serializer = CategorySerializer(category)
+            reviewrating = get_object_or_404(ReviewRating, pk=pk)
+            serializer = ReviewRatingSerializer(reviewrating)
             return Response({
                 "status": "Success",
                 "data": serializer.data,
                 "errors": ""
             }, status=status.HTTP_200_OK)
         else:
-            name = request.data.get('name')
-            categories = Category.objects.all()
-            if name:
-                categories = categories.filter(name__icontains=name)
-            categories = categories.order_by('id')
+            reviewratings = ReviewRating.objects.all()
+            reviewrating = reviewratings.order_by('id')
             paginator = self.pagination_class()
-            page = paginator.paginate_queryset(categories, request)
+            page = paginator.paginate_queryset(reviewratings, request)
 
             if page is not None:
-                serializer = CategorySerializer(page, many=True)
+                serializer = ReviewRatingSerializer(page, many=True)
                 return paginator.get_paginated_response(serializer.data)
             
-            serializer = CategorySerializer(categories, many=True)
+            serializer = ReviewRatingSerializer(reviewrating, many=True)
             return Response({
                 "status": "Success",
                 "data": serializer.data,
@@ -51,7 +48,7 @@ class CategoryListCreateView(APIView):
             }, status=status.HTTP_200_OK)
 
     def post(self, request, *args, **kwarges):
-        serializer = CategorySerializer(data=request.data)
+        serializer = ReviewRatingSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(user_created=request.user)
             headers = self.get_success_headers(serializer.data)
@@ -68,8 +65,8 @@ class CategoryListCreateView(APIView):
             }, status=status.HTTP_400_BAD_REQUEST)
 
     def put(self, request, pk):
-        category = get_object_or_404(Category, pk=pk)
-        serializer = CategorySerializer(category, data=request.data, partial=True)
+        reviewrating = get_object_or_404(ReviewRating, pk=pk)
+        serializer = ReviewRatingSerializer(reviewrating, data=request.data, partial=True)
         if serializer.is_valid():
             instance = serializer.save(user_updated=request.user)
             instance.date_updated = timezone.now()
@@ -86,8 +83,8 @@ class CategoryListCreateView(APIView):
         }, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk):
-        category = get_object_or_404(Category, pk=pk)
-        category.delete()
+        reviewrating = get_object_or_404(ReviewRating, pk=pk)
+        reviewrating.delete()
         return Response({
             "status": "Success",
             "data": "",

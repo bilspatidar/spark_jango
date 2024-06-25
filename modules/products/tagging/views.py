@@ -5,9 +5,8 @@ from rest_framework import status
 from django.utils import timezone
 from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404
-from django.utils import timezone
-from .models import Category
-from .serializers import CategorySerializer
+from .models import Tagging
+from .serializers import TaggingSerializer
 from rest_framework.settings import api_settings
 from rest_framework.pagination import PageNumberPagination
 
@@ -16,34 +15,32 @@ class StandardResultsSetPagination(PageNumberPagination):
     page_size_query_param = 'page_size'
     max_page_size = 100
 
-
-class CategoryListCreateView(APIView):
+class TaggingCustomViewList(APIView):
     permission_classes = [IsAuthenticated]
     pagination_class = StandardResultsSetPagination
 
     def get(self, request, pk=None):
         if pk:
-            category = get_object_or_404(Category, pk=pk)
-            serializer = CategorySerializer(category)
+            tagging = get_object_or_404(Tagging, pk=pk)
+            serializer = TaggingSerializer(tagging)
             return Response({
                 "status": "Success",
                 "data": serializer.data,
                 "errors": ""
             }, status=status.HTTP_200_OK)
         else:
-            name = request.data.get('name')
-            categories = Category.objects.all()
-            if name:
-                categories = categories.filter(name__icontains=name)
-            categories = categories.order_by('id')
-            paginator = self.pagination_class()
-            page = paginator.paginate_queryset(categories, request)
-
-            if page is not None:
-                serializer = CategorySerializer(page, many=True)
-                return paginator.get_paginated_response(serializer.data)
+            booking_id = request.data.get('booking_id')
+            taggings = Tagging.objects.all()
+            if booking_id:
+                taggings = taggings.filter(booking_id__icontains=booking_id)
+                taggings = taggings.order_by('id') 
             
-            serializer = CategorySerializer(categories, many=True)
+            paginator = self.pagination_class()
+            page = paginator.paginate_queryset(taggings, request)
+            if page is not None:
+                serializer = TaggingSerializer(page, many=True)
+                return paginator.get_paginated_response(serializer.data)
+            serializer = TaggingSerializer(taggings, many=True)
             return Response({
                 "status": "Success",
                 "data": serializer.data,
@@ -51,7 +48,7 @@ class CategoryListCreateView(APIView):
             }, status=status.HTTP_200_OK)
 
     def post(self, request, *args, **kwarges):
-        serializer = CategorySerializer(data=request.data)
+        serializer = TaggingSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(user_created=request.user)
             headers = self.get_success_headers(serializer.data)
@@ -68,8 +65,8 @@ class CategoryListCreateView(APIView):
             }, status=status.HTTP_400_BAD_REQUEST)
 
     def put(self, request, pk):
-        category = get_object_or_404(Category, pk=pk)
-        serializer = CategorySerializer(category, data=request.data, partial=True)
+        tagging = get_object_or_404(Tagging, pk=pk)
+        serializer = TaggingSerializer(tagging, data=request.data, partial=True)
         if serializer.is_valid():
             instance = serializer.save(user_updated=request.user)
             instance.date_updated = timezone.now()
@@ -86,8 +83,8 @@ class CategoryListCreateView(APIView):
         }, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk):
-        category = get_object_or_404(Category, pk=pk)
-        category.delete()
+        tagging = get_object_or_404(Tagging, pk=pk)
+        tagging.delete()
         return Response({
             "status": "Success",
             "data": "",
