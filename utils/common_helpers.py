@@ -1,9 +1,14 @@
 from rest_framework import serializers
-from django.core.validators import RegexValidator
+from django.core.validators import RegexValidator, ValidationError
 from django.utils import timezone
 import re
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
+from django.utils.crypto import get_random_string
+
+def validate_name(value):
+    if not re.match(r'^[a-zA-Z ]+$', value):
+        raise ValidationError('Only letters and spaces are allowed in the name.')
 
 def validate_phone_number(value):
     phone_validator = RegexValidator(
@@ -34,3 +39,9 @@ def send_custom_email(subject, html_content, recipient_list):
     msg.attach_alternative(html_content, "text/html")
     
     msg.send()
+
+def generate_token():
+    return get_random_string(length=6)
+
+def token_expire_time():
+    return timezone.now() + timezone.timedelta(minutes=10)

@@ -9,10 +9,17 @@ from django.utils import timezone
 from .models import Category
 from .serializers import CategorySerializer
 from rest_framework.settings import api_settings
+from rest_framework.pagination import PageNumberPagination
+
+class StandardResultsSetPagination(PageNumberPagination):
+    page_size = 10
+    page_size_query_param = 'page_size'
+    max_page_size = 100
 
 
 class CategoryListCreateView(APIView):
     permission_classes = [IsAuthenticated]
+    pagination_class = StandardResultsSetPagination
 
     def get(self, request, pk=None):
         if pk:
@@ -28,6 +35,14 @@ class CategoryListCreateView(APIView):
             categories = Category.objects.all()
             if name:
                 categories = categories.filter(name__icontains=name)
+            categories = categories.order_by('id')
+            paginator = self.pagination_class()
+            page = paginator.paginate_queryset(categories, request)
+
+            if page is not None:
+                serializer = CategorySerializer(page, many=True)
+                return paginator.get_paginated_response(serializer.data)
+            
             serializer = CategorySerializer(categories, many=True)
             return Response({
                 "status": "Success",
