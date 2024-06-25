@@ -53,18 +53,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework_simplejwt.token_blacklist',
+    'rest_framework_simplejwt.token_blacklist',  
+    #Module start here
     'user',
     'modules.products.categories',
     'modules.products.subcategories',
     'modules.products.user_documents',
-    'modules.products.form_field',
-    'emails',
-    'modules.products.document',
-    'modules.products.document_type',
-    'modules.products.service',
-    'modules.products.tagging',
-    'modules.products.review_rating',
+    'modules.products.form_field', 
+    #Module end here 
+    #Libraries Start here 
+    'emails'
+    #Librariesend here 
     ]
 
 MIDDLEWARE = [
