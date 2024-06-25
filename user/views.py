@@ -17,6 +17,7 @@ from utils.common_helpers import generate_token, token_expire_time
 from rest_framework.permissions import AllowAny
 from rest_framework.generics import UpdateAPIView
 from django.core.cache import cache
+from emails.utils import send_sign_up_email 
 
 
 
@@ -27,11 +28,32 @@ class UserRegisterView(generics.CreateAPIView):
     serializer_class = UserSerializer
     permission_classes = (permissions.AllowAny,)
 
+    # def create(self, request, *args, **kwargs):
+    #     serializer = self.get_serializer(data=request.data)
+    #     if serializer.is_valid():
+    #         self.perform_create(serializer)
+    #         headers = self.get_success_headers(serializer.data)
+    #         return Response({
+    #             "status": "Success",
+    #             "data": serializer.data,
+    #             "errors": ""
+    #         }, status=status.HTTP_201_CREATED, headers=headers)
+    #     else:
+    #         return Response({
+    #             "status": "Failed",
+    #             "data": "",
+    #             "errors": serializer.errors
+    #         }, status=status.HTTP_400_BAD_REQUEST)
+
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
             self.perform_create(serializer)
             headers = self.get_success_headers(serializer.data)
+            
+            # Send sign-up email to the user
+            send_sign_up_email(serializer.instance)
+
             return Response({
                 "status": "Success",
                 "data": serializer.data,

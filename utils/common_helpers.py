@@ -1,10 +1,14 @@
 from rest_framework import serializers
-from django.core.validators import RegexValidator
+from django.core.validators import RegexValidator, ValidationError
 from django.utils import timezone
 import re
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 from django.utils.crypto import get_random_string
+
+def validate_name(value):
+    if not re.match(r'^[a-zA-Z ]+$', value):
+        raise ValidationError('Only letters and spaces are allowed in the name.')
 
 def validate_phone_number(value):
     phone_validator = RegexValidator(
