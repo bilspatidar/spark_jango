@@ -25,5 +25,11 @@ urlpatterns = [
     path('api/categories/', include('modules.products.categories.urls')),
     path('api/subcategories/', include('modules.products.subcategories.urls')),
     path('api/userdocuments/', include('modules.products.user_documents.urls')),
-
+    path('api/form_fields/', include('modules.products.form_field.urls')),
+    path('api/document/', include('modules.products.document.urls')),
+    path('api/document_type/', include('modules.products.document_type.urls')),
+    path('api/service/', include('modules.products.service.urls')),
+    path('api/tagging/', include('modules.products.tagging.urls')),
+    path('api/review_rating/', include('modules.products.review_rating.urls')),
+    
 ]
