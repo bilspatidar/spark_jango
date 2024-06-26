@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'modules.products.service',
     'modules.products.tagging',
     'modules.products.review_rating',
+    'modules.products.contact',
     ]
 
 MIDDLEWARE = [

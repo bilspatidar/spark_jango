@@ -31,5 +31,5 @@ urlpatterns = [
     path('api/service/', include('modules.products.service.urls')),
     path('api/tagging/', include('modules.products.tagging.urls')),
     path('api/review_rating/', include('modules.products.review_rating.urls')),
-    
+    path('api/contact/', include('modules.products.contact.urls')),
 ]
