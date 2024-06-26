@@ -7,3 +7,8 @@ db.sqlite3
 myproject/__pycache__/settings.cpython-312.pyc
 __pycache__/
 *.py[cod]
+__pycache__/
+*.py[cod]
+*.env
+.env.production
+.env.development

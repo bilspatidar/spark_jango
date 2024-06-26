@@ -40,7 +40,9 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=50),
 }
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['example.com', 'www.example.com', '127.0.0.1', 'localhost']
+
 
 AUTH_USER_MODEL = 'user.CustomUser'
 
@@ -59,7 +61,7 @@ INSTALLED_APPS = [
     'modules.products.categories',
     'modules.products.subcategories',
     'modules.products.user_documents',
-    'modules.products.form_field', 
+    #'modules.products.form_field', 
     #Module end here 
     #Libraries Start here 
     'emails'
