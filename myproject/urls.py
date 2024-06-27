@@ -31,5 +31,9 @@ urlpatterns = [
     path('api/service/', include('modules.products.service.urls')),
     path('api/tagging/', include('modules.products.tagging.urls')),
     path('api/review_rating/', include('modules.products.review_rating.urls')),
+    path('api/leads/', include('modules.products.leads.urls')),
+    path('api/projects/', include('modules.products.projects.urls')),
+    path('api/accountheads/', include('modules.jpinfra.accountheads.urls')),
+    path('api/blog_categories/', include('modules.jpinfra.blog_categories.urls')),
     
 ]

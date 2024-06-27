@@ -65,6 +65,10 @@ INSTALLED_APPS = [
     'modules.products.service',
     'modules.products.tagging',
     'modules.products.review_rating',
+    'modules.products.leads',
+    'modules.products.projects',
+    'modules.jpinfra.accountheads',
+    'modules.jpinfra.blog_categories',
     ]
 
 MIDDLEWARE = [
@@ -86,7 +90,6 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'emails/templates'),
-            os.path.join(BASE_DIR, 'emails', 'templates'),  
         ],
         'APP_DIRS': True,
         'OPTIONS': {
