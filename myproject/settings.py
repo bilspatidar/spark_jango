@@ -61,6 +61,15 @@ INSTALLED_APPS = [
     'modules.products.categories',
     'modules.products.subcategories',
     'modules.products.user_documents',
+    'modules.products.form_field',
+    'emails',
+    'modules.products.document',
+    'modules.products.document_type',
+    'modules.products.service',
+    'modules.products.tagging',
+    'modules.products.review_rating',
+    'modules.products.contact',
+
     #'modules.products.form_field', 
     #Module end here 
     #Libraries Start here 
