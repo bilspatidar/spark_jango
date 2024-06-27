@@ -40,7 +40,9 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=50),
 }
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['example.com', 'www.example.com', '127.0.0.1', 'localhost']
+
 
 AUTH_USER_MODEL = 'user.CustomUser'
 
@@ -53,13 +55,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework_simplejwt.token_blacklist',
+    'rest_framework_simplejwt.token_blacklist',  
+    #Module start here
     'user',
     'modules.products.categories',
     'modules.products.subcategories',
     'modules.products.user_documents',
-    'modules.products.form_field',
+    #'modules.products.form_field', 
+    #Module end here 
+    #Libraries Start here 
     'emails'
+    #Librariesend here 
     ]
 
 MIDDLEWARE = [
@@ -79,7 +85,10 @@ ROOT_URLCONF = 'myproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'emails/templates'),
+            os.path.join(BASE_DIR, 'emails', 'templates'),  
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -144,11 +153,16 @@ REST_FRAMEWORK = {
     ),
 }
 
-EMAIL_BACKEND = os.getenv('EMAIL_BACKEND')
-EMAIL_HOST = os.getenv('EMAIL_HOST')
-EMAIL_PORT = os.getenv('EMAIL_PORT')
-EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS') == 'True'
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+# EMAIL_BACKEND = os.getenv('EMAIL_BACKEND')
+# EMAIL_HOST = os.getenv('EMAIL_HOST')
+# EMAIL_PORT = os.getenv('EMAIL_PORT')
+# EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS') == 'True'
+# EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
-
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'dhangarnaksh0510@gmail.com'
+EMAIL_HOST_PASSWORD = 'fivzsxbaraynxtxq'

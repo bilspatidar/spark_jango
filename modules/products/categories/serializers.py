@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from .models import Category
 from django.contrib.auth.models import User
-# from .common_helper import  format_datetime
 from utils.common_helpers import format_datetime 
 from utils.base64_helpers import Base64ImageField
 
