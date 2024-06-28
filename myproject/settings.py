@@ -69,7 +69,12 @@ INSTALLED_APPS = [
     'modules.products.tagging',
     'modules.products.review_rating',
     'modules.products.contact',
-    'modules.products.currency',
+
+    #'modules.products.form_field', 
+    #Module end here 
+    #Libraries Start here 
+    'emails'
+    #Librariesend here 
     ]
 
 MIDDLEWARE = [

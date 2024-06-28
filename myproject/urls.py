@@ -32,5 +32,4 @@ urlpatterns = [
     path('api/tagging/', include('modules.products.tagging.urls')),
     path('api/review_rating/', include('modules.products.review_rating.urls')),
     path('api/contact/', include('modules.products.contact.urls')),
-    path('api/currency/', include('modules.products.currency.urls')),
 ]
