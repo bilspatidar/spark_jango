@@ -40,7 +40,9 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=50),
 }
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['example.com', 'www.example.com', '127.0.0.1', 'localhost']
+
 
 AUTH_USER_MODEL = 'user.CustomUser'
 
@@ -53,7 +55,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework_simplejwt.token_blacklist',
+    'rest_framework_simplejwt.token_blacklist',  
+    #Module start here
     'user',
     'modules.products.categories',
     'modules.products.subcategories',
@@ -65,6 +68,13 @@ INSTALLED_APPS = [
     'modules.products.service',
     'modules.products.tagging',
     'modules.products.review_rating',
+    'modules.products.contact',
+
+    #'modules.products.form_field', 
+    #Module end here 
+    #Libraries Start here 
+    'emails'
+    #Librariesend here 
     ]
 
 MIDDLEWARE = [
