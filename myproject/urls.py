@@ -41,5 +41,6 @@ urlpatterns = [
     path('api/states/', include('modules.jpinfra.states.urls')),
     path('api/cities/', include('modules.jpinfra.city.urls')),
     path('api/customer_wallets/', include('modules.jpinfra.customer_wallet.urls')),
+    path('api/employees/', include('modules.jpinfra.employees.urls')),
     
 ]

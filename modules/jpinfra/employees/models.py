@@ -4,12 +4,12 @@ from myproject.models import BaseModel
 from utils.common_helpers import validate_name
 
 class Employee(BaseModel):
-    first_name = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100, validators=[validate_name])
     last_name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
     mobile = models.CharField(max_length=15)
     alt_mobile = models.CharField(max_length=15, blank=True, null=True)
-    password = models.CharField(max_length=100)  # Assuming you might use Django's built-in User model for authentication
+    password = models.CharField(max_length=100) 
     user_type = models.CharField(max_length=50)
     father_name = models.CharField(max_length=100)
     mother_name = models.CharField(max_length=100)

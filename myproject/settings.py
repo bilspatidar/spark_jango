@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     'modules.jpinfra.states',
     'modules.jpinfra.city',
     'modules.jpinfra.customer_wallet',
+    'modules.jpinfra.employees',
     ]
 
 MIDDLEWARE = [
