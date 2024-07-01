@@ -1,0 +1,141 @@
+﻿
+2024-06-27 09:57:37
+PROCESSOR_CALLBACK_REQUEST#24
+Message: Got callback on com.payneteasy.paynet.processing.support.processor.impl.centpays.CentpaysIFrameStartController$1@7e5e4bc9 (via IdInternalHandleRequestStrategy)
+Data:
+   GET https://gate.gumballpay.com/paynet/processor/cntps-start/1hAFROjfQv680-JBpcfkhSA
+   Remote address: 213.7.223.107
+   Parameters: 0
+   Headers: 25
+      accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+      accept-encoding: gzip, br
+      accept-language: en-US,en;q=0.9
+      cdn-loop: cloudflare
+      cf-connecting-ip: 213.7.223.107
+      cf-ipcountry: CY
+      cf-ray: 89a38b3f6f151522-LCA
+      cf-visitor: {"scheme":"https"}
+      cookie: 384420454.token=BE4C7DFA9025C89D61381DEADEF27B25D7ABA3D1; _gcl_au=1.1.627036086.1718960623; _ga=GA1.1.1866422584.1718960623; cb_user_id=null; cb_group_id=null; cb_anonymous_id=%226a45d682-f741-4650-8175-7371ce4f2524%22; _ga_P9F75T769P=GS1.1.1718960623.1.1.1718961871.60.0.0; __Host-JSESSIONID=838CF29359321C6133EC03FD13E18303
+      dnt: 1
+      host: gate.gumballpay.com
+      priority: u=0, i
+      referer: https://gate.gumballpay.com/processing/form/wait
+      sec-ch-ua: "Not/A)Brand";v="8", "Chromium";v="126"
+      sec-ch-ua-mobile: ?0
+      sec-ch-ua-platform: "macOS"
+      sec-fetch-dest: document
+      sec-fetch-mode: navigate
+      sec-fetch-site: same-origin
+      upgrade-insecure-requests: 1
+      user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+      x-forwarded-proto: https
+      x-real-ip: 172.68.130.132
+      x-tls-cipher: ECDHE-RSA-AES256-GCM-SHA384
+      x-tls-protocol: TLSv1.2
+
+2024-06-27 09:57:37
+PROCESSOR_CALLBACK_REQUEST#26
+384420543
+Message: [CALLBACK] >> [REQUEST] GET https://gate.gumballpay.com/paynet/processor/cntps-start/1hAFROjfQv680-JBpcfkhSA
+Data: 
+   Remote address: 213.7.223.107
+   Parameters: 0
+   Headers: 25
+      accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+      accept-encoding: gzip, br
+      accept-language: en-US,en;q=0.9
+      cdn-loop: cloudflare
+      cf-connecting-ip: 213.7.223.107
+      cf-ipcountry: CY
+      cf-ray: 89a38b3f6f151522-LCA
+      cf-visitor: {"scheme":"https"}
+      cookie: 384420454.token=BE4C7DFA9025C89D61381DEADEF27B25D7ABA3D1; _gcl_au=1.1.627036086.1718960623; _ga=GA1.1.1866422584.1718960623; cb_user_id=null; cb_group_id=null; cb_anonymous_id=%226a45d682-f741-4650-8175-7371ce4f2524%22; _ga_P9F75T769P=GS1.1.1718960623.1.1.1718961871.60.0.0; __Host-JSESSIONID=838CF29359321C6133EC03FD13E18303
+      dnt: 1
+      host: gate.gumballpay.com
+      priority: u=0, i
+      referer: https://gate.gumballpay.com/processing/form/wait
+      sec-ch-ua: "Not/A)Brand";v="8", "Chromium";v="126"
+      sec-ch-ua-mobile: ?0
+      sec-ch-ua-platform: "macOS"
+      sec-fetch-dest: document
+      sec-fetch-mode: navigate
+      sec-fetch-site: same-origin
+      upgrade-insecure-requests: 1
+      user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+      x-forwarded-proto: https
+      x-real-ip: 172.68.130.132
+      x-tls-cipher: ECDHE-RSA-AES256-GCM-SHA384
+      x-tls-protocol: TLSv1.2
+
+2024-06-27 09:57:37
+PROCESSOR_CALLBACK_REQUEST#30
+Message: Got redirect on class com.payneteasy.paynet.processing.support.processor.impl.centpays.CentpaysIFrameStartController$1
+Data:
+   GET https://gate.gumballpay.com/paynet/processor/cntps-start/1hAFROjfQv680-JBpcfkhSA
+   Remote address: 213.7.223.107
+   Parameters: 0
+   Headers: 25
+      accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+      accept-encoding: gzip, br
+      accept-language: en-US,en;q=0.9
+      cdn-loop: cloudflare
+      cf-connecting-ip: 213.7.223.107
+      cf-ipcountry: CY
+      cf-ray: 89a38b3f6f151522-LCA
+      cf-visitor: {"scheme":"https"}
+      cookie: 384420454.token=BE4C7DFA9025C89D61381DEADEF27B25D7ABA3D1; _gcl_au=1.1.627036086.1718960623; _ga=GA1.1.1866422584.1718960623; cb_user_id=null; cb_group_id=null; cb_anonymous_id=%226a45d682-f741-4650-8175-7371ce4f2524%22; _ga_P9F75T769P=GS1.1.1718960623.1.1.1718961871.60.0.0; __Host-JSESSIONID=838CF29359321C6133EC03FD13E18303
+      dnt: 1
+      host: gate.gumballpay.com
+      priority: u=0, i
+      referer: https://gate.gumballpay.com/processing/form/wait
+      sec-ch-ua: "Not/A)Brand";v="8", "Chromium";v="126"
+      sec-ch-ua-mobile: ?0
+      sec-ch-ua-platform: "macOS"
+      sec-fetch-dest: document
+      sec-fetch-mode: navigate
+      sec-fetch-site: same-origin
+      upgrade-insecure-requests: 1
+      user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+      x-forwarded-proto: https
+      x-real-ip: 172.68.130.132
+      x-tls-cipher: ECDHE-RSA-AES256-GCM-SHA384
+      x-tls-protocol: TLSv1.2
+
+2024-06-27 09:59:07
+PROCESSOR_REQUEST#50
+384420543
+Message: [STATUS] >> [REQUEST] POST https://centpays.com/v2/get_transaction
+Data: 
+   Headers: 3
+      api-key: live_$2y$10$FB.FSddfzaEJa37aZ8wDOeDYoI.UjSr.ZEl63CqQxxogwG2j/0w7G
+      api-secret: live_$2y$10$v6rY3jScbqdKdKfhIAgPQ.dZpDm.sINdTMbySssWT/DcLj6FYgKkS
+      Content-Type: application/json
+   Body (pretty formatted):
+      {
+        "transaction_id": "384420543"
+      }
+   Body (original): {"transaction_id":"384420543"}
+
+2024-06-27 09:59:09
+PROCESSOR_RESPONSE#52
+384420543
+Message: [STATUS] << [RESPONSE] https://centpays.com/v2/get_transaction
+Data: 
+   Status: 406 (Not Acceptable)
+   Headers: 9
+      Cache-Control: no-store, no-cache, must-revalidate
+      Connection: close
+      Content-Length: 64
+      Content-Type: application/json; charset=UTF-8
+      Date: Thu, 27 Jun 2024 06:59:08 GMT
+      Expires: Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma: no-cache
+      Server: Apache
+      Set-Cookie: PHPSESSID=v9lma75q4qcsq62n9ucf8ulier; expires=Thu, 27-Jun-2024 08:39:08 GMT; Max-Age=6000; path=/; secure; HttpOnly
+   Body (pretty formatted):
+      {
+        "code": 406,
+        "status": "Error",
+        "message": "Invalid transaction id"
+      }
+   Body (original): {"code":406,"status":"Error","message":"Invalid transaction id"}

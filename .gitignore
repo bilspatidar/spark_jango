@@ -1,0 +1,9 @@
+# .gitignore
+.env.development
+.env.production
+__pycache__/
+*.pyc
+db.sqlite3
+myproject/__pycache__/settings.cpython-312.pyc
+db.sqlite3
+
