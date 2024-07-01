@@ -35,12 +35,5 @@ urlpatterns = [
     path('api/projects/', include('modules.products.projects.urls')),
     path('api/accountheads/', include('modules.jpinfra.accountheads.urls')),
     path('api/blog_categories/', include('modules.jpinfra.blog_categories.urls')),
-    path('api/blogs/', include('modules.jpinfra.blog.urls')),
-    path('api/branch/', include('modules.jpinfra.branch.urls')),
-    path('api/countries/', include('modules.jpinfra.countries.urls')),
-    path('api/states/', include('modules.jpinfra.states.urls')),
-    path('api/cities/', include('modules.jpinfra.city.urls')),
-    path('api/customer_wallets/', include('modules.jpinfra.customer_wallet.urls')),
-    path('api/employees/', include('modules.jpinfra.employees.urls')),
     
 ]
