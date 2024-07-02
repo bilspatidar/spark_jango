@@ -1,12 +1,20 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+<<<<<<< HEAD
 from django.utils import timezone
 from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404
 from .models import Acquirer
 from .serializers import AcquirerSerializer
 from rest_framework.settings import api_settings
+=======
+from rest_framework.permissions import IsAuthenticated
+from django.utils import timezone
+from django.shortcuts import get_object_or_404
+from .models import Acquirer  # Update import to Acquirer model
+from .serializers import AcquirerSerializer  # Update import to AcquirerSerializer
+>>>>>>> 657db95 (Payment Complete)
 from rest_framework.pagination import PageNumberPagination
 
 class StandardResultsSetPagination(PageNumberPagination):
@@ -28,6 +36,7 @@ class AcquirerListCreateView(APIView):
                 "errors": ""
             }, status=status.HTTP_200_OK)
         else:
+<<<<<<< HEAD
             email = request.data.get('email')
             mobile = request.data.get('mobile')
             
@@ -44,6 +53,22 @@ class AcquirerListCreateView(APIView):
                 serializer = AcquirerSerializer(page, many=True)
                 return paginator.get_paginated_response(serializer.data)
             
+=======
+            name = request.query_params.get('name')  # Use query_params instead of data for GET requests
+
+            acquirers = Acquirer.objects.all()
+            if name:
+                acquirers = acquirers.filter(name__icontains=name)
+            
+            acquirers = acquirers.order_by('id')
+            
+            paginator = self.pagination_class()
+            page = paginator.paginate_queryset(acquirers, request)
+            if page is not None:
+                serializer = AcquirerSerializer(page, many=True)
+                return paginator.get_paginated_response(serializer.data)
+
+>>>>>>> 657db95 (Payment Complete)
             serializer = AcquirerSerializer(acquirers, many=True)
             return Response({
                 "status": "Success",
@@ -55,12 +80,19 @@ class AcquirerListCreateView(APIView):
         serializer = AcquirerSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(user_created=request.user)
+<<<<<<< HEAD
             headers = self.get_success_headers(serializer.data)
+=======
+>>>>>>> 657db95 (Payment Complete)
             return Response({
                 "status": "Success",
                 "data": serializer.data,
                 "errors": ""
+<<<<<<< HEAD
             }, status=status.HTTP_201_CREATED, headers=headers)
+=======
+            }, status=status.HTTP_201_CREATED)
+>>>>>>> 657db95 (Payment Complete)
         else:
             return Response({
                 "status": "Failed",

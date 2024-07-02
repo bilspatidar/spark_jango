@@ -8,12 +8,16 @@ class AcquirerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Acquirer
+<<<<<<< HEAD
         fields = [
             'id', 'encription_key', 'name', 'country', 'currency', 'prod_url',
             'prod_key', 'prod_secret', 'sandbox_url', 'sandbox_key',
             'sandbox_secret', 'status', 'min_value', 'max_value', 'daily_value',
             'cards', 'date_created', 'date_updated', 'user_created', 'user_updated'
         ]
+=======
+        fields = ['id', 'encription_key', 'name', 'country', 'currency', 'prod_url', 'prod_key', 'prod_secret', 'sandbox_url', 'sandbox_key', 'sandbox_secret', 'status', 'min_value', 'max_value', 'daily_value', 'cards', 'date_created', 'date_updated', 'user_created', 'user_updated']
+>>>>>>> 657db95 (Payment Complete)
         extra_kwargs = {
             'status': {'required': False}
         }
