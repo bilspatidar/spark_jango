@@ -65,17 +65,6 @@ INSTALLED_APPS = [
     'modules.products.service',
     'modules.products.tagging',
     'modules.products.review_rating',
-    'modules.products.leads',
-    'modules.products.projects',
-    'modules.jpinfra.accountheads',
-    'modules.jpinfra.blog_categories',
-    'modules.jpinfra.blog',
-    'modules.jpinfra.branch',
-    'modules.jpinfra.countries',
-    'modules.jpinfra.states',
-    'modules.jpinfra.city',
-    'modules.jpinfra.customer_wallet',
-    'modules.jpinfra.employees',
     ]
 
 MIDDLEWARE = [
