@@ -17,11 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
-
+from django.views.decorators.csrf import csrf_exempt
+from .views import TestView, RootView  
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/user/', include('user.urls')),
+    path('test/', csrf_exempt(TestView.as_view()), name='test-view'),
+    path('', csrf_exempt(RootView.as_view()), name='root-view'),
     path('api/categories/', include('modules.products.categories.urls')),
     path('api/subcategories/', include('modules.products.subcategories.urls')),
     path('api/userdocuments/', include('modules.products.user_documents.urls')),
