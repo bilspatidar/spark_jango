@@ -31,8 +31,6 @@ urlpatterns = [
     path('api/service/', include('modules.products.service.urls')),
     path('api/tagging/', include('modules.products.tagging.urls')),
     path('api/review_rating/', include('modules.products.review_rating.urls')),
-<<<<<<< HEAD
-=======
     path('api/leads/', include('modules.products.leads.urls')),
     path('api/projects/', include('modules.products.projects.urls')),
     path('api/accountheads/', include('modules.jpinfra.accountheads.urls')),
@@ -45,6 +43,6 @@ urlpatterns = [
     path('api/customer_wallets/', include('modules.jpinfra.customer_wallet.urls')),
     path('api/employees/', include('modules.jpinfra.employees.urls')),
     path('api/acquirers/', include('modules.payment.acquirers.urls')),
->>>>>>> 1afaa88 (Payment Complete)
+    
     
 ]
