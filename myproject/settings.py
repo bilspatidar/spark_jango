@@ -40,9 +40,7 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=50),
 }
 
-
-ALLOWED_HOSTS = ['example.com', 'www.example.com', '127.0.0.1', 'localhost']
-
+ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'user.CustomUser'
 
@@ -55,8 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework_simplejwt.token_blacklist',  
-    #Module start here
+    'rest_framework_simplejwt.token_blacklist',
     'user',
     'modules.products.categories',
     'modules.products.subcategories',
@@ -68,9 +65,18 @@ INSTALLED_APPS = [
     'modules.products.service',
     'modules.products.tagging',
     'modules.products.review_rating',
-    'modules.products.contact',
-    'modules.products.currency',
-   
+    'modules.products.leads',
+    'modules.products.projects',
+    'modules.jpinfra.accountheads',
+    'modules.jpinfra.blog_categories',
+    'modules.jpinfra.blog',
+    'modules.jpinfra.branch',
+    'modules.jpinfra.countries',
+    'modules.jpinfra.states',
+    'modules.jpinfra.city',
+    'modules.jpinfra.customer_wallet',
+    'modules.jpinfra.employees',
+    'modules.payment.acquirers',
     ]
 
 MIDDLEWARE = [

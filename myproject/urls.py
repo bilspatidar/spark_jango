@@ -17,11 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
-
+from django.views.decorators.csrf import csrf_exempt
+from .views import TestView, RootView  
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/user/', include('user.urls')),
+    path('test/', csrf_exempt(TestView.as_view()), name='test-view'),
+    path('', csrf_exempt(RootView.as_view()), name='root-view'),
     path('api/categories/', include('modules.products.categories.urls')),
     path('api/subcategories/', include('modules.products.subcategories.urls')),
     path('api/userdocuments/', include('modules.products.user_documents.urls')),
@@ -31,6 +34,18 @@ urlpatterns = [
     path('api/service/', include('modules.products.service.urls')),
     path('api/tagging/', include('modules.products.tagging.urls')),
     path('api/review_rating/', include('modules.products.review_rating.urls')),
-    path('api/contact/', include('modules.products.contact.urls')),
-    path('api/currency/', include ('modules.products.currency.urls')),
+    path('api/leads/', include('modules.products.leads.urls')),
+    path('api/projects/', include('modules.products.projects.urls')),
+    path('api/accountheads/', include('modules.jpinfra.accountheads.urls')),
+    path('api/blog_categories/', include('modules.jpinfra.blog_categories.urls')),
+    path('api/blogs/', include('modules.jpinfra.blog.urls')),
+    path('api/branch/', include('modules.jpinfra.branch.urls')),
+    path('api/countries/', include('modules.jpinfra.countries.urls')),
+    path('api/states/', include('modules.jpinfra.states.urls')),
+    path('api/cities/', include('modules.jpinfra.city.urls')),
+    path('api/customer_wallets/', include('modules.jpinfra.customer_wallet.urls')),
+    path('api/employees/', include('modules.jpinfra.employees.urls')),
+    path('api/acquirers/', include('modules.payment.acquirers.urls')),
+    
+    
 ]
