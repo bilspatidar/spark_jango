@@ -34,14 +34,6 @@ urlpatterns = [
     path('api/service/', include('modules.products.service.urls')),
     path('api/tagging/', include('modules.products.tagging.urls')),
     path('api/review_rating/', include('modules.products.review_rating.urls')),
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 657db95 (Payment Complete)
-=======
->>>>>>> 40ab15f (Updated .gitignore and removed unnecessary files from tracking)
     path('api/leads/', include('modules.products.leads.urls')),
     path('api/projects/', include('modules.products.projects.urls')),
     path('api/accountheads/', include('modules.jpinfra.accountheads.urls')),
@@ -51,17 +43,9 @@ urlpatterns = [
     path('api/countries/', include('modules.jpinfra.countries.urls')),
     path('api/states/', include('modules.jpinfra.states.urls')),
     path('api/cities/', include('modules.jpinfra.city.urls')),
-<<<<<<< HEAD
-    path('api/customer_wallets/', include('modules.jpinfra.city.urls')),
-=======
     path('api/customer_wallets/', include('modules.jpinfra.customer_wallet.urls')),
     path('api/employees/', include('modules.jpinfra.employees.urls')),
     path('api/acquirers/', include('modules.payment.acquirers.urls')),
-<<<<<<< HEAD
->>>>>>> 1afaa88 (Payment Complete)
->>>>>>> 657db95 (Payment Complete)
-=======
     
->>>>>>> 40ab15f (Updated .gitignore and removed unnecessary files from tracking)
     
 ]

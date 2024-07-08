@@ -77,7 +77,6 @@ INSTALLED_APPS = [
     'modules.jpinfra.customer_wallet',
     'modules.jpinfra.employees',
     'modules.payment.acquirers',
-    
     ]
 
 MIDDLEWARE = [

@@ -1,10 +1,10 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import UserProfile  
+from .models import Employee  
 
-class UserProfileSerializer(serializers.ModelSerializer):
+class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = UserProfile
+        model = Employee
         fields = [
             'first_name', 'last_name', 'email', 'mobile', 'alt_mobile', 'password',
             'user_type', 'father_name', 'mother_name', 'dob', 'doj',
